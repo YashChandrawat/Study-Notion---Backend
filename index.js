@@ -48,6 +48,9 @@ app.use("/api/v1", contactRoutes);
 app.get("/", (req, res) => {
   res.send("Server is working and running...");
 });
+app.get("/api/login", (req, res) => {
+  res.send("Welcome to login page");
+});
 
 app.listen(PORT, () => {
   console.log(`Server is running at PORT : ${PORT}`);
