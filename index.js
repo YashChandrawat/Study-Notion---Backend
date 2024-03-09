@@ -26,7 +26,7 @@ app.use(cookieParser());
 // Here we use cors to connect the frontend with backend therefore we used the below middleware to connect
 app.use(
   cors({
-    origin: "https://studynotion-ed-tech.netlify.app/",
+    origin: "https://studynotion-ed-tech.netlify.app",
     credentials: true,
   })
 );
