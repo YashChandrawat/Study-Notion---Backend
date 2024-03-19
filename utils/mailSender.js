@@ -8,18 +8,23 @@ const mailSender = async (email, title, body) => {
         user: process.env.MAIL_USER,
         pass: process.env.MAIL_PASS,
       },
+      tls: {
+        rejectUnauthorized: false,
+      },
     });
 
     let info = await transporter.sendMail({
-      from: "StudyNotion || Yash Chandrawat",
-      to: `${email}`,
-      subject: `${title}`,
-      html: `${body}`,
+      from: "StudyNotion || CodeHelp - by Babbar",
+      to: email,
+      subject: title,
+      html: body,
     });
-    console.log(info);
+
+    console.log("Email sent successfully. Message ID:", info.messageId);
     return info;
   } catch (error) {
-    console.log(error.message);
+    console.error("Error occurred while sending email:", error);
+    throw error; // Re-throw the error for the caller to handle if needed
   }
 };
 
